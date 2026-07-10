@@ -1,0 +1,48 @@
+/* Problem: Merge Sorted Array
+
+Pattern:
+Two Pointers (Backward Merge)
+
+Key Idea:
+Since nums1 has empty space at the end,
+fill the array from the end instead of
+trying to insert elements at the front.
+
+Time Complexity:
+O(m+n)
+
+Space Complexity:
+O(1)
+
+What I learned:
+Whenever an array has extra space at the end,
+think about solving the problem backwards.
+ */
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+
+        int i = m - 1;
+        int j = n - 1;
+        int k = nums1.length - 1;
+
+        while (i >= 0 && j >= 0) {
+            if (nums2[j] > nums1[i]) {
+                nums1[k] = nums2[j];
+                k--;
+                j--;
+            } else {
+                nums1[k] = nums1[i];
+                k--;
+                i--;
+            }
+        }
+
+        while (j >= 0) {
+            nums1[k] = nums2[j];
+            k--;
+            j--;
+        }
+
+    }
+}
