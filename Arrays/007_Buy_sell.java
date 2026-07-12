@@ -1,11 +1,12 @@
 /*
  * Problem: Best Time to Buy and Sell Stock
- * * Personal Note: 
- * This one was a bit tricky at first! I had to look at the solution and break it down 
- * line by line to fully grasp it. Realized it's a fundamental Dynamic Programming / Greedy problem.
- * * Logic:
- * Track the lowest buying price seen so far, and calculate the maximum profit 
- * possible by selling at the current day's price.
+ * * Approach: 
+ * This is a classic Dynamic Programming / Greedy approach (Kadane's-like logic).
+ * Instead of checking every pair of days, we maintain the minimum price seen so far (`mini`) 
+ * and calculate the potential profit if we sell on the current day (`prices[i]`).
+ * We track the maximum profit encountered throughout the loop.
+ * * Time Complexity: O(n) - Single pass through the array.
+ * Space Complexity: O(1) - Constant space used.
  */
 
 class Solution {
